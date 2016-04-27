@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>Local Weather</title>
+    
+    
+    <link rel="stylesheet" href="css/normalize.css">
+
+    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css'>
+
+        <link rel="stylesheet" href="css/style.css">
+
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.21/vue.min.js"></script>
+    
+    
+  </head>
+
+  <body>
+
+<h1>Local Weather</h1>
+
+<section id="app">
+	<div class="container">
+		<div class="row">
+			<div class="two-thirds column" id="weather-description">
+				<h3 class="weather-location">{{ location }}</h2>
+				<p>
+					<a href="#" title="Change unit" class="weather-temp button button-primary" v-on:click="loadData(! this.isMetricUnit)">
+						<span>{{ temp }}</span>
+					</a>
+				</p>
+				<h4 class="weather-status">{{ weather}}</h3>
+			</div>
+			<div class="one-third column" id="weather">
+			<template v-if="cond >= 200 & cond <= 232">
+				<div class="icon thunder-storm">
+ 					<div class="cloud"></div>
+  					<div class="lightning">
+    					<div class="bolt"></div>
+    					<div class="bolt"></div>
+  					</div>
+				</div>
+			</template>
+			<template v-if="cond >= 300 & cond <= 321">
+				<div class="icon sun-shower">
+  					<div class="cloud"></div>
+ 					<div class="sun">
+   					 <div class="rays"></div>
+  					</div>
+  					<div class="rain"></div>
+				</div>
+			</template>
+			<template v-if="cond >= 500 & cond <= 531">
+				<div class="icon rainy">
+  					<div class="cloud"></div>
+  					<div class="rain"></div>
+				</div>
+			</template>
+			<template v-if="cond >= 600 & cond <= 622">
+				<div class="icon flurries">
+  					<div class="cloud"></div>
+  					<div class="snow">
+    					<div class="flake"></div>
+    					<div class="flake"></div>
+  					</div>
+				</div>
+			</template>
+			<template v-if="cond == 800">
+				<div class="icon sunny">
+				  <div class="sun">
+				    <div class="rays"></div>
+				  </div>
+				</div>
+			</template>
+			<template v-if="cond >= 801 & cond <= 804">
+				<div class="icon cloudy">
+				  <div class="cloud"></div>
+				  <div class="cloud"></div>
+				</div>
+			</template>			
+			</div>
+		</div>
+	</div>
+</section>
+<footer id="footer">
+<p>
+	Inspired by
+	<a href="https://codepen.io/joshbader/pen/EjXgqr" target="_blank">
+		joshbader
+	</a>
+</p>
+</footer>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
+
+        <script src="js/index.js"></script>
+
+    
+    
+    
+  </body>
+</html>
